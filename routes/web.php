@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+Route::resource('cardapios', 'CardapioController');
+Route::resource('clientes', 'ClienteController');
+Route::resource('garcoms', 'GarcomController');
+Route::resource('homes', 'HomeController');
+
