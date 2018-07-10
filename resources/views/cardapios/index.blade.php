@@ -9,6 +9,8 @@
 			</li>	
 		@endforeach
 	</ol>
+	{{ $cardapios->links()}}
+	<br>
 	<a href="{{ route('cardapios.create') }}">Cadastrar Novo</a>
 	<br>
 	<br>

@@ -14,7 +14,7 @@ class GarcomController extends Controller
      */
     public function index()
     {
-        $garcoms = Garcom::all();
+        $garcoms = Garcom::orderBy('nome', 'asc')->paginate(4);
         return view('garcoms.index', ['garcoms'=> $garcoms ]);
     }
 
@@ -36,6 +36,9 @@ class GarcomController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'nome' => 'required|unique:garcoms|max:100|min:3|alpha'
+        ]);
         Garcom::create($request->all());
         return redirect('garcoms');
     }

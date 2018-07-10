@@ -4,8 +4,12 @@
 	{{ csrf_field() }}
 	<label for="nome">Nome do Garçom</label>
 	<input type="text" name="nome">
-	<label for="setor">Setor</label>
-	<input type="text" name="setor">
+	<br>
+	<label for="setor">Setor: </label>
+	<input type="radio" name="setor" value="Norte">Norte
+	<input type="radio" name="setor" value="Sul">Sul
+	<input type="radio" name="setor" value="Leste">Leste
+	<input type="radio" name="setor" value="Oeste">Oeste
 	<button type="submit">Cadastrar</button>
 </form>	
 @endsection

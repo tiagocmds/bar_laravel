@@ -9,6 +9,8 @@
 			</li>		
 		@endforeach
 	</ol>
+	{{$garcoms->links()}}
+	<br>
 	<a href="{{ route('garcoms.create') }}">Cadastrar Novo</a>
 	<br>
 	<br>

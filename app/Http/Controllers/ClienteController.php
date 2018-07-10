@@ -14,7 +14,7 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::all();
+        $clientes = Cliente::orderBy('nome', 'asc')->paginate(5);
         return view('clientes.index', ['clientes' => $clientes ]);
     }
 
@@ -36,6 +36,10 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'nome' => 'required|unique:clientes|min:3|max:100|alpha',
+            'telefone' => 'required|digits:9|numeric'
+        ]);
         Cliente::create($request->all());
         return redirect('clientes');
     }

@@ -8,6 +8,8 @@
 	<input type="number" name="Valor">
 	<button type="submit">Cadastrar</button>
 </form>	
+	<br>
+	<a href="{{ route('cardapios.index') }}">Voltar a Listagem</a>
 
 
 @endsection

@@ -8,6 +8,8 @@
 	<input type="text" name="telefone">
 	<button type="submit">Cadastrar</button>
 </form>	
+	<br>
+	<a href="{{ route('clientes.index') }}">Voltar a Listagem</a>
 
 
 @endsection

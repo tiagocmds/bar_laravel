@@ -14,7 +14,7 @@ class CardapioController extends Controller
      */
     public function index()
     {
-        $cardapios = Cardapio::all();
+        $cardapios = Cardapio::orderBy('Nome', 'asc')->paginate(5);
         return view('cardapios.index', ['cardapios'=> $cardapios]);
     }
 
@@ -36,6 +36,10 @@ class CardapioController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'Nome' => 'required|unique:cardapios|max:100',
+            'Valor' => 'required|numeric'
+        ]);
         Cardapio::create($request->all());
         return redirect('cardapios');
     }
