@@ -37,7 +37,7 @@ class GarcomController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nome' => 'required|unique:garcoms|max:100|min:3|alpha'
+            'nome' => 'bail|required|unique:garcoms|max:100|min:3|alpha'
         ]);
         Garcom::create($request->all());
         return redirect('garcoms');

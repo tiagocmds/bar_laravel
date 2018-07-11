@@ -37,8 +37,8 @@ class CardapioController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'Nome' => 'required|unique:cardapios|max:100',
-            'Valor' => 'required|numeric'
+            'Nome' => 'bail|required|unique:cardapios|max:100',
+            'Valor' => 'bail|required|numeric'
         ]);
         Cardapio::create($request->all());
         return redirect('cardapios');

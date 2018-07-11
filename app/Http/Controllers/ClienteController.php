@@ -37,8 +37,8 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nome' => 'required|unique:clientes|min:3|max:100|alpha',
-            'telefone' => 'required|digits:9|numeric'
+            'nome' => 'bail|required|unique:clientes|min:3|max:100|alpha',
+            'telefone' => 'bail|required|digits:9|numeric'
         ]);
         Cliente::create($request->all());
         return redirect('clientes');
