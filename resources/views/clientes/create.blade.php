@@ -6,10 +6,10 @@
 	<input type="text" name="nome">
 	<label for="Valor">Telefone</label>
 	<input type="text" name="telefone">
-	<button type="submit">Cadastrar</button>
+	<button class="btn btn-success" type="submit">Cadastrar</button>
+	<a class="btn btn-danger" href="{{ route('clientes.index') }}">Voltar a Listagem</a>
 </form>	
-	<br>
-	<a href="{{ route('clientes.index') }}">Voltar a Listagem</a>
+	
 
 
 @endsection

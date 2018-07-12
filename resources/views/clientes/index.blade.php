@@ -11,8 +11,8 @@
 </ol>
 	{{$clientes->links()}}
 	<br>	
-	<a href="{{ route('clientes.create') }}">Cadastrar Novo</a>
+	<a class="btn btn-success" href="{{ route('clientes.create') }}">Cadastrar Novo</a>
 	<br>
 	<br>
-	<a href="{{ route('homes.index') }}">Voltar ao Menu Inicial</a>
+	
 @endsection

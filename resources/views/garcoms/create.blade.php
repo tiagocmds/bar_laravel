@@ -10,6 +10,10 @@
 	<input type="radio" name="setor" value="Sul">Sul
 	<input type="radio" name="setor" value="Leste">Leste
 	<input type="radio" name="setor" value="Oeste">Oeste
-	<button type="submit">Cadastrar</button>
+	<br>
+	<br>
+	<button class="btn btn-success" type="submit">Cadastrar</button>
+	<a class="btn btn-danger" href="{{ route('garcoms.index') }}">Voltar a Listagem</a>
 </form>	
+
 @endsection

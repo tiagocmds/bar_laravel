@@ -6,10 +6,10 @@
 	<input type="text" name="Nome">
 	<label for="Valor">Valor do Produto</label>
 	<input type="number" name="Valor">
-	<button type="submit">Cadastrar</button>
+	<button class="btn btn-success" type="submit">Cadastrar</button>
+	<a class="btn btn-danger" href="{{ route('cardapios.index') }}">Voltar a Listagem</a>
 </form>	
-	<br>
-	<a href="{{ route('cardapios.index') }}">Voltar a Listagem</a>
+	
 
 
 @endsection
