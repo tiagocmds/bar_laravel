@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Cliente;
+use App\Mesa;
 use Illuminate\Http\Request;
 
-class ClienteController extends Controller
+class MesaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        $clientes = Cliente::orderBy('nome', 'asc')->paginate(5);
-        return view('clientes.index', ['clientes' => $clientes ]);
+        $mesas = Mesa::orderBy('id', 'asc')->paginate(5);
+        return view('mesas.index', ['mesas' => $mesas]);
     }
 
     /**
@@ -25,7 +25,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view('clientes.create');
+        return view('mesas.create');
     }
 
     /**
@@ -37,54 +37,54 @@ class ClienteController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nome' => 'bail|required|unique:clientes|min:3|max:100|alpha',
-            'telefone' => 'bail|required|digits:9|numeric'
+            'setor' => 'bail|required'
         ]);
-        Cliente::create($request->all());
-        return redirect('clientes');
+        Mesa::create($request->all());
+        return redirect('mesas');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Cliente  $cliente
+     * @param  \App\Mesa  $mesa
      * @return \Illuminate\Http\Response
      */
-    public function show(Cliente $cliente)
+    public function show(Mesa $mesa)
     {
-        return view('clientes.show', ['cliente' => $cliente]);
+        return view('mesas.show', ['mesa' => $mesa]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Cliente  $cliente
+     * @param  \App\Mesa  $mesa
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cliente $cliente)
+    public function edit(Mesa $mesa)
     {
-        //
+        return view('mesas.edit', ['mesa' => $mesa]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Cliente  $cliente
+     * @param  \App\Mesa  $mesa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cliente $cliente)
+    public function update(Request $request, Mesa $mesa)
     {
-        //
+        $mesa->update($request->all());
+        return redirect('mesas');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Cliente  $cliente
+     * @param  \App\Mesa  $mesa
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cliente $cliente)
+    public function destroy(Mesa $mesa)
     {
         //
     }

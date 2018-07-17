@@ -62,7 +62,7 @@ class GarcomController extends Controller
      */
     public function edit(Garcom $garcom)
     {
-        //
+        return view('garcoms.edit', ['garcom' => $garcom]);
     }
 
     /**
@@ -74,7 +74,8 @@ class GarcomController extends Controller
      */
     public function update(Request $request, Garcom $garcom)
     {
-        //
+        $garcom->update($request->all());
+        return redirect('garcoms');
     }
 
     /**

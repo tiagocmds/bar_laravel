@@ -6,4 +6,5 @@
 	</div>
 	<br>
 	<a class="btn btn-danger" href="{{ route('cardapios.index') }}">Voltar a Listagem</a>
+	<a class="btn btn-danger" href="{{ route('cardapios.edit' , $cardapio) }}">Editar</a>
 @endsection		

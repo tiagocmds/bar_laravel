@@ -23,10 +23,11 @@
 	</div>
 	<nav class="navbar navbar-inverse">
 	    <ul class="nav navbar-nav">
-	      <span class="glyphicons glyphicons-home">HOME</span>
+	    
 	      <li><a href="{{ route('homes.index') }}">HOME</a></li>
 	      <li><a href="{{ route('cardapios.index') }}">Nosso Cardapio</a></li>
-	      <li><a href="{{ route('clientes.index') }}">Clientes</a></li>
+		  <li><a href="{{ route('produtos.index') }}">Produtos</a></li>
+	      <li><a href="{{ route('mesas.index') }}">Mesas</a></li>
 	      <li><a href="{{ route('garcoms.index') }}">Nossos Garçons</a></li>
 	    </ul>
 	</nav>

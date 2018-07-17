@@ -12,8 +12,9 @@
 */
 
 Route::get('/', 'HomeController@index');
+Route::resource('produtos', 'ProdutoController');
 Route::resource('cardapios', 'CardapioController');
-Route::resource('clientes', 'ClienteController');
+Route::resource('mesas', 'MesaController');
 Route::resource('garcoms', 'GarcomController');
 Route::resource('homes', 'HomeController');
 

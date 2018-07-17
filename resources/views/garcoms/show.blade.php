@@ -6,4 +6,5 @@
 	</div>
 	<br>
 	<a class="btn btn-danger" href="{{route('garcoms.index')}}">Voltar a Listagem</a>
+	<a class="btn btn-danger" href="{{ route('garcoms.edit' , $garcom) }}">Editar</a>
 @endsection	

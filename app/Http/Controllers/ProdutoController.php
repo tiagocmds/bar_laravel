@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Cardapio;
+use App\Produto;
 use Illuminate\Http\Request;
 
-class CardapioController extends Controller
+class ProdutoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class CardapioController extends Controller
      */
     public function index()
     {
-        $cardapios = Cardapio::orderBy('Nome', 'asc')->paginate(5);
-        return view('cardapios.index', ['cardapios'=> $cardapios]);
+        $produtos = Produto::orderBy('nome', 'asc')->paginate(9);
+        return view('produtos.index', ['produtos' => $produtos]);
     }
 
     /**
@@ -25,7 +25,7 @@ class CardapioController extends Controller
      */
     public function create()
     {
-        return view('cardapios.create');
+        return view('produtos.create');
     }
 
     /**
@@ -37,55 +37,55 @@ class CardapioController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'Nome' => 'bail|required|unique:cardapios|max:100',
-            'Valor' => 'bail|required|numeric'
+            'nome' => 'bail|required|unique:produtos|',
+            'valor' => 'bail|required'
         ]);
-        Cardapio::create($request->all());
-        return redirect('cardapios');
+        Produto::create($request->all());
+        return redirect('produtos');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Cardapio  $cardapio
+     * @param  \App\Produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function show(Cardapio $cardapio)
+    public function show(Produto $produto)
     {
-        return view('cardapios.show', ['cardapio' => $cardapio]);
+        return view('produtos.show', ['produto' => $produto]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Cardapio  $cardapio
+     * @param  \App\Produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function edit(Cardapio $cardapio)
+    public function edit(Produto $produto)
     {
-        return view('cardapios.edit', ['cardapio' => $cardapio]);
+        return view('produtos.edit', ['produto' => $produto]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Cardapio  $cardapio
+     * @param  \App\Produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Cardapio $cardapio)
+    public function update(Request $request, Produto $produto)
     {
-        $cardapio->update($request->all());
-        return redirect('cardapios');
+        $produto->update($request->all());
+        return redirect('produtos');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Cardapio  $cardapio
+     * @param  \App\Produto  $produto
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cardapio $cardapio)
+    public function destroy(Produto $produto)
     {
         //
     }
