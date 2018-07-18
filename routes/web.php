@@ -16,5 +16,6 @@ Route::resource('produtos', 'ProdutoController');
 Route::resource('cardapios', 'CardapioController');
 Route::resource('mesas', 'MesaController');
 Route::resource('garcoms', 'GarcomController');
+Route::resource('comandas', 'ComandaController');
 Route::resource('homes', 'HomeController');
 

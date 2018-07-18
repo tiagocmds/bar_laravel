@@ -29,6 +29,7 @@
 		  <li><a href="{{ route('produtos.index') }}">Produtos</a></li>
 	      <li><a href="{{ route('mesas.index') }}">Mesas</a></li>
 	      <li><a href="{{ route('garcoms.index') }}">Nossos Garçons</a></li>
+		  <li><a href="{{ route('comandas.index') }}">Comandas</a></li>
 	    </ul>
 	</nav>
 	
