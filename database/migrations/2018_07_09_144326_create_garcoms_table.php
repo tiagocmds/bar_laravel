@@ -16,7 +16,6 @@ class CreateGarcomsTable extends Migration
         Schema::create('garcoms', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome')->unique();
-            $table->string('setor');
             $table->timestamps();
         });
     }

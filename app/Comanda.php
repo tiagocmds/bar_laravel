@@ -6,15 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comanda extends Model
 {
-    protected $fillable = ['mesa_id', 'garcom_id', 'produto_id'];
+    protected $fillable = ['mesa_id', 'garcom_id', 'produto_id', 'nome'];
     public function mesa(){
-        return $this->hasOne('App\Mesa', 'mesa_id');
+        return $this->belongsTo('App\Mesa', 'mesa_id');
     }
     public function garcom(){
-        return $this->hasOne('App\Garcom', 'garcom_id');
+        return $this->belongsTo('App\Garcom', 'garcom_id');
     }
-    public function produtos(){
-        return $this->hasMany('App\Produto', 'produto_id');
-    }    
+    public function produto(){
+        return $this->hasMany('App\Produto');
+    }   
 }
 

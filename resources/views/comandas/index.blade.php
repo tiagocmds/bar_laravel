@@ -1,15 +1,17 @@
 @extends('layouts.app')
 @section('main')
-   
-    @foreach($comandas as $comanda)
-          
-        <a href="{{route('comandas.show', $comanda)}}">Mesa - {{$comanda->mesa_id}}</a>
-        {{print_r($comanda)}}
-    @endforeach
+   <pre>
+        @foreach($listadecomandas as $mesa => $produtos)
+         
+        <a href="#">Comanda - {{$mesa}}</a>
+       
+        
+        <br>
+        @endforeach
     <br>
      
         <a href="{{ route('comandas.create') }}">Criar</a>
 
-
+    </pre>
 
 @endsection

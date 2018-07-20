@@ -17,9 +17,14 @@ class ComandaController extends Controller
      */
     public function index()
     {
-        
-        $comandas = Comanda::all();
-        return view('comandas.index', compact('mesas', 'comandas'));
+        //$comandas = ;
+
+
+
+
+
+        $listadecomandas = Comanda::all()->groupBy('mesa_id');
+        return view('comandas.index', compact('listadecomandas'));
     }
 
     /**
@@ -30,9 +35,8 @@ class ComandaController extends Controller
     public function create()
     {
         $garcoms = Garcom::get();
-        $produtos = Produto::get();
         $mesas = Mesa::get();
-        return view('comandas.create', compact('garcoms', 'produtos', 'mesas'));
+        return view('comandas.create', compact('garcoms', 'mesas'));
     }
 
     /**
@@ -46,7 +50,7 @@ class ComandaController extends Controller
         $this->validate($request, [
             'mesa_id' => 'required',
             'garcom_id' => 'required',
-            'produto_id' => 'required',
+            'nome' => 'required',
         ]);
         Comanda::create($request->all());
         return redirect('comandas');
@@ -60,7 +64,7 @@ class ComandaController extends Controller
      */
     public function show(Comanda $comanda)
     {
-        //
+        return view('comandas.show', compact('comandas'));
     }
 
     /**

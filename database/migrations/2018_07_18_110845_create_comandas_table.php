@@ -15,14 +15,13 @@ class CreateComandasTable extends Migration
     {
         Schema::create('comandas', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nome');
             $table->integer('mesa_id')->unsigned()->index();
             $table->foreign('mesa_id')->references('id')->on('mesas')->onDelete('cascade');
 
             $table->integer('garcom_id')->unsigned()->index();
             $table->foreign('garcom_id')->references('id')->on('garcoms')->onDelete('cascade');
 
-            $table->integer('produto_id')->unsigned()->index();
-            $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
             $table->timestamps();
         });
     }

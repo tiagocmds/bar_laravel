@@ -5,11 +5,6 @@
 	<label for="nome">Nome do Garçom</label>
 	<input type="text" name="nome">
 	<br>
-	<label for="setor">Setor: </label>
-	<input type="radio" name="setor" value="Norte">Norte
-	<input type="radio" name="setor" value="Sul">Sul
-	<input type="radio" name="setor" value="Leste">Leste
-	<input type="radio" name="setor" value="Oeste">Oeste
 	<br>
 	<br>
 	<button class="btn btn-success" type="submit">Cadastrar</button>

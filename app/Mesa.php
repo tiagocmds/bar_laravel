@@ -11,6 +11,9 @@ class Mesa extends Model
     public function garcoms(){
         return $this->belongsToMany('App\Garcom')->withtimestamps();
     }
+    public function comandas(){
+        return $this->hasMany('App\Comanda', 'comanda_id');
+    }
     public function produtos(){
         return $this->belongsToMany('App\Produto')->withtimestamps();
     }
