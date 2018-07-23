@@ -16,10 +16,10 @@ class CreateComandaProdutoPivotTable extends Migration
         Schema::create('comanda_produto', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('comanda_id')->unsigned()->index();
+            $table->integer('comanda_id')->unsigned();
             $table->foreign('comanda_id')->references('id')->on('comandas')->onDelete('cascade');
 
-            $table->integer('produto_id')->unsigned()->index();
+            $table->integer('produto_id')->unsigned();
             $table->foreign('produto_id')->references('id')->on('produtos')->onDelete('cascade');
 
             $table->timestamps();

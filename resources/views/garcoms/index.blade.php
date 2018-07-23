@@ -3,6 +3,7 @@
 	<ol>
 		@foreach($garcoms as $garcom)
 			<li>
+				
 				<a href="{{ route('garcoms.show', $garcom) }}">
 					{{ $garcom->nome }}
 				</a>

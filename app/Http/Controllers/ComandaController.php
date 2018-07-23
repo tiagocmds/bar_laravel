@@ -17,12 +17,7 @@ class ComandaController extends Controller
      */
     public function index()
     {
-        //$comandas = ;
-
-
-
-
-
+      
         $listadecomandas = Comanda::all()->groupBy('mesa_id');
         return view('comandas.index', compact('listadecomandas'));
     }
@@ -64,7 +59,8 @@ class ComandaController extends Controller
      */
     public function show(Comanda $comanda)
     {
-        return view('comandas.show', compact('comandas'));
+        $total = 0;
+        return view('comandas.show', compact('comanda', 'produtos', 'total'));
     }
 
     /**
@@ -75,7 +71,8 @@ class ComandaController extends Controller
      */
     public function edit(Comanda $comanda)
     {
-        //
+        $produtos = Produto::get()->pluck('nome', 'id')->sortBy('nome');
+        return view('comandas.edit', compact('comanda', 'produtos'));
     }
 
     /**
@@ -87,7 +84,9 @@ class ComandaController extends Controller
      */
     public function update(Request $request, Comanda $comanda)
     {
-        //
+        $comanda->produtos()->attach($request->get('produtos'));
+        //$comanda->produtos()->sync($request->produtos);
+        return redirect('comandas');
     }
 
     /**
