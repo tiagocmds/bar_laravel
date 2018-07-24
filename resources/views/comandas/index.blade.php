@@ -5,7 +5,7 @@
       
         <a href="{{ route('mesas.show', $mesa) }}">Mesa - {{$mesa}}</a>
             @foreach($comandas as $comanda)
-            --<a href="{{ route('comandas.show', $comanda) }}">comanda - {{$comanda->id}} ({{$comanda->nome}})</a>
+            --<a href="{{ route('comandas.show', $comanda) }}">comanda - {{$comanda->id}} ({{$comanda->nome}}) Valor Total - R${{ $comanda->produtos()->get()->sum('valor')}}</a>
             @endforeach
         <br>
         @endforeach

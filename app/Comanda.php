@@ -10,5 +10,6 @@ class Comanda extends Model
     public function produtos(){
         return $this->belongsToMany('App\Produto');
     }   
+    
 }
 

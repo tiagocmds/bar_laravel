@@ -17,9 +17,8 @@ class ComandaController extends Controller
      */
     public function index()
     {
-      
         $listadecomandas = Comanda::all()->groupBy('mesa_id');
-        return view('comandas.index', compact('listadecomandas'));
+        return view('comandas.index', compact('listadecomandas', '$total'));
     }
 
     /**
@@ -59,7 +58,8 @@ class ComandaController extends Controller
      */
     public function show(Comanda $comanda)
     {
-        $total = 0;
+        //$total = array_sum($comanda->produtos()->get()->pluck('valor')->toArray());
+        $total = $comanda->produtos()->get()->sum('valor');
         return view('comandas.show', compact('comanda', 'produtos', 'total'));
     }
 
@@ -98,5 +98,15 @@ class ComandaController extends Controller
     public function destroy(Comanda $comanda)
     {
         //
+    }
+    public function somaValor($comanda){
+        $total = 0;
+        //dd($comanda->produtos()->get()->toArray()[5]);
+        dd($comanda->produtos()->get()->pluck('valor')->toArray());
+        foreach($comanda->produtos()->get() as $produto){
+
+            $total += $produto->valor;    
+        }
+        return $total;
     }
 }
