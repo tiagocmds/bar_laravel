@@ -37,8 +37,8 @@ class ProdutoController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'nome' => 'bail|required|unique:produtos|',
-            'valor' => 'bail|required'
+            'nome' => 'bail|required|unique:produtos|min:2',
+            'valor' => 'bail|required|min:0.1|numeric|'
         ]);
         Produto::create($request->all());
         return redirect('produtos');

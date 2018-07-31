@@ -39,6 +39,7 @@ class GarcomController extends Controller
         $this->validate($request, [
             'nome' => 'bail|required|unique:garcoms|max:100|min:3|alpha'
         ]);
+        //$request->nome = ucfirst($request->nome);
         Garcom::create($request->all());
         return redirect('garcoms');
     }

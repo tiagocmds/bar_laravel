@@ -18,7 +18,7 @@ class ComandaController extends Controller
     public function index()
     {
         $listadecomandas = Comanda::all()->groupBy('mesa_id');
-        return view('comandas.index', compact('listadecomandas', '$total'));
+        return view('comandas.index', compact('listadecomandas'));
     }
 
     /**

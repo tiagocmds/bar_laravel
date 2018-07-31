@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Validator;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +14,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+       /* Validator::extend('produtos_rule', function($attribute, $value, $parameters, $validator)
+        {
+            if(ctype_alpha($value))
+            {
+                return true;
+            }
+                return false;
+        });*/
     }
 
     /**
