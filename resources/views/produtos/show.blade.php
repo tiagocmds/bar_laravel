@@ -6,7 +6,7 @@
 	</div>
 	<br>
 	<a class="btn btn-danger" href="{{route('produtos.index')}}">Voltar a Listagem</a>
-	<a class="btn btn-danger" href="{{ route('produtos.edit' , $produto) }}" value="Editar">Editar</a>
+	<a class="btn btn-danger" href="{{route('produtos.edit' , $produto) }}" value="Editar">Editar</a>
 
 
 @endsection

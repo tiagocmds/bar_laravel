@@ -44,7 +44,7 @@ class ComandaController extends Controller
         $this->validate($request, [
             'mesa_id' => 'required',
             'garcom_id' => 'required',
-            'nome' => 'required',
+            'nome' => 'required|min:3|alpha',
         ]);
         Comanda::create($request->all());
         return redirect('comandas');

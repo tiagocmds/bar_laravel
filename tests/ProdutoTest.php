@@ -30,13 +30,13 @@ class ProdutoTest extends TestCase
         $this->visit('produtos/create')
              ->type('chocolate', 'nome')
              ->type(15, 'valor')
-             ->press('Cadastrar')
-             ;
+             ->press('Cadastrar');
+             
         $this->visit('produtos/create')
              ->type('chocolate', 'nome')
              ->type(15, 'valor')
-             ->press('Cadastrar')
-             ;     
+             ->press('Cadastrar');
+                 
         $this->assertEquals(1, Produto::all()->where('nome', 'chocolate')->count()); 
            
     }
@@ -61,5 +61,22 @@ class ProdutoTest extends TestCase
              ->notSeeInDatabase('produtos', ['valor' => -15])
              ->seePageIs('produtos/create');
     }
-
+    public function testAlfabeticoNoValor()
+    {
+        $this->visit('produtos/create')
+             ->type('upa', 'nome')
+             ->type("aaa", 'valor')
+             ->press('Cadastrar')
+             ->notSeeInDatabase('produtos', ['valor' => "aaa"])
+             ->seePageIs('produtos/create');
+    }
+    public function testValorNull()
+    {
+        $this->visit('produtos/create')
+             ->type('upa', 'nome')
+             ->type(null, 'valor')
+             ->press('Cadastrar')
+             ->notSeeInDatabase('produtos', ['valor' => null])
+             ->seePageIs('produtos/create');
+    }
 }
